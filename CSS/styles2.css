@@ -138,11 +138,3 @@ body{
     font-weight: 600;
     color: #293241;
 } 
-
-@media(max-width: 1200px){
-    .container-2{
-        display: flex;
-        flex-direction: column;
-        padding: 2rem;
-    }
-}
