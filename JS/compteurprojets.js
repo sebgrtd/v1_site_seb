@@ -11,7 +11,6 @@ var compteurEc = 0;
 var indexEc = [];
 var indexTer = [];
 
-
 for(let i = 0; i < pourcentages.length; i++)
 {
     if(pourcentages[i].innerHTML.includes("100%"))
@@ -27,9 +26,6 @@ for(let i = 0; i < pourcentages.length; i++)
     compteur +=1;
 }
 
-console.log(indexEc);
-console.log(indexTer);
-
 tousMesProjets.innerHTML += " (<span style='color:cornflowerblue'>" + compteur + "</span>)";
 projetsEnCours.innerHTML += " (<span style='color:cornflowerblue'>" + compteurEc + "</span>)";
 projetsTermines.innerHTML += " (<span style='color:cornflowerblue'>" + compteurT + "</span>)";
@@ -37,8 +33,15 @@ projetsTermines.innerHTML += " (<span style='color:cornflowerblue'>" + compteurT
 tousMesProjets.addEventListener("click", () => {
     for(let i = 0; i < projets.length; i++)
     {
-        projets[i].classList.add('visible');
+        projets[i].classList.remove('visible');
     }
+    setTimeout( () => {
+    for(let i = 0; i < projets.length; i++)
+        {
+            console.log(i);
+            projets[i].classList.add('visible');
+        }
+    }, 100);
     projetsEnCours.classList.remove("listactive");
     projetsTermines.classList.remove("listactive");
     tousMesProjets.classList.add("listactive");
@@ -49,10 +52,11 @@ projetsEnCours.addEventListener("click", () => {
     {
         projets[i].classList.remove('visible');
     }
-    for(let i = 0; i < indexEc.length; i++)
-    {
-        projets[indexEc[i]].classList.add('visible');
-    }
+    setTimeout( () => { for(let i = 0; i < indexEc.length; i++)
+        {
+            projets[indexEc[i]].classList.add('visible');
+        }
+    }, 100);
     projetsEnCours.classList.add("listactive");
     projetsTermines.classList.remove("listactive");
     tousMesProjets.classList.remove("listactive");
@@ -63,10 +67,12 @@ projetsTermines.addEventListener("click", () => {
     {
         projets[i].classList.remove('visible');
     }
-    for(let i = 0; i < indexTer.length; i++)
-    {
-        projets[indexTer[i]].classList.add('visible');
-    }
+    setTimeout( () => {
+        for(let i = 0; i < indexTer.length; i++)
+        {
+            projets[indexTer[i]].classList.add('visible');
+        }
+    }, 100),
     projetsEnCours.classList.remove("listactive");
     projetsTermines.classList.add("listactive");
     tousMesProjets.classList.remove("listactive");
