@@ -99,6 +99,7 @@ body{
 .container-2 .visible{
     display: flex;
     flex-direction: column;
+    animation: projectsFade 1s ease forwards;
 }
 
 .container-2 .projet:hover{
@@ -138,3 +139,66 @@ body{
     font-weight: 600;
     color: #293241;
 } 
+
+@keyframes projectsFade{
+    from {
+        opacity: 0;
+        transform: translateX(50px)
+    }
+    to{
+        opacity: 1;
+        ransform: translateX(0px)
+    }
+}
+
+@media(max-width: 1700px){
+    .container-2{
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns:50% 50%;
+        grid-template-rows: 29% 29% 29%;
+        grid-row-gap: 4rem;
+        
+    } 
+}
+
+@media(max-width: 1200px){
+
+    .container-1 h1{
+        font-size: 7rem;
+    }
+
+    .container-1 ul{
+        flex-direction: column;
+    }
+
+    .container-1 ul li a{
+        font-size: 3rem;
+    }
+
+    .container-1 ul li a:hover{
+        font-size: 3rem;
+    }
+
+    .container-1 ul li .listactive:hover{
+        font-size: 3rem;
+    }
+
+    .container-2{
+        margin-top: 13rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+    }
+
+    .container-2 .projet{
+        width: 100%;
+        margin: 0;
+    }
+
+    .container-2 .projet:hover{
+        width: 100%;
+        height: 100%;
+    }
+}
