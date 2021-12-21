@@ -18,11 +18,12 @@ body {
     overflow:auto;
     scroll-snap-type: y mandatory;
     height: 100vh;
-    background-image: url(bg.jpg);
+    background-image: url('/IMG/bg.jpg');
 }
 
 section{
     position: relative;
+    min-height: 100vh;
     height: auto;
 }
 
@@ -185,11 +186,13 @@ nav li a:hover, .nav li a:focus{
 /* first section -------------------------------------------------------------------------------------------------*/
 
 .prbox{
+    padding: 2rem;
     width: 95%;
     margin: 5em auto;
     font-weight: 600;
-    color: #3D5A80;
     background: #293241;
+    background: rgba(41, 50, 65, 0.97);
+    border-radius: 10px;;
     display:flex;
     justify-content: space-between;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -199,21 +202,19 @@ nav li a:hover, .nav li a:focus{
 
 .prbox .subcontainer{
     width: 70%;
-    justify-content: flex-end;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    margin-left: 30px;
-    font-size: 1.25em;
-    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 1.25rem;
     background: transparent;
 }
 
 .prbox .subcontainer .t{
-    font-size: 2.7em
+    font-size: 2.7em;
 }
 
 .prbox .subcontainer .button{
-    margin-top: 1em;
+    width: 30%;
     text-decoration: none;
     display:inline-block;
     border: none;
@@ -226,6 +227,7 @@ nav li a:hover, .nav li a:focus{
     transition: all 0.3s ease 0s;
     cursor: pointer;
 }
+
 
 .prbox .subcontainer .button:hover{
     background-color: #556DD4;
@@ -247,12 +249,6 @@ nav li a:hover, .nav li a:focus{
 
 /* second section -------------------------------------------------------------------------------------------------*/
 
-.img2{
-    min-width: 10px;
-    width: 3em;
-    bottom: 0px;
-}
-
 .container{
     font-size: 40px;
     width: 100%;
@@ -263,13 +259,17 @@ nav li a:hover, .nav li a:focus{
     align-items: center;
 }
 
+.container .t{
+    padding:50px;
+}
+
 .container .subcontainer{
-    height: 100%;
     margin: 0 2%;
     display:grid;  
-    grid-gap: 10px;
-    grid-template-columns: 33% 33% 33%;
-    grid-template-rows: 50% 50% ;
+    grid-template-columns: 32% 32% 32%;
+    grid-template-rows: 48% 48% ;
+    row-gap: 1.5rem;
+    justify-content: space-between;
 }
 
 
@@ -281,32 +281,37 @@ nav li a:hover, .nav li a:focus{
     display:flex;
     flex-direction: column;
     font-size: 20px; 
+    padding: 1.2rem;
+    justify-content: space-between;
 }
 
 .etitle{
-    margin: 0.7em;
     font-size: 2rem;
     color: white;
 }
 
 .element .econtent{
-    margin: 0 1em;
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 6;
     -webkit-box-orient: vertical;
     white-space: normal;
-    height: 7em;
+    height: 7.2em;
     color: darkgrey;
 }
 
 .element a{ 
-    margin-top: 1em;
     color: #98C1D9;
+    margin: 0;
 }
 
 .element a:hover{
     color: cornflowerblue;
+}
+
+.img2{
+    width: 3em;
+    margin: auto 2em;
 }
 
 /* footer -------------------------------------------------------------------------------------------------*/
@@ -316,6 +321,7 @@ footer{
     width: 98%;
     margin-top: 3em;
     margin-bottom: 1em;
+    
     display:flex;
     justify-content: space-evenly;
     align-items: center;
@@ -323,11 +329,16 @@ footer{
 }
 
 footer .col{
-    padding: 2em;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    row-gap: 1rem;
     color: darkgray;
     text-align: center;
     width: 30%;
     height: 100%;
+    padding: 2em;
 }
 
 footer .col .t{
@@ -344,16 +355,29 @@ footer .col .t{
 
 
 @media(max-width: 1800px){
-    .containerm{
-        scroll-snap-type: none;
-        overflow-x: hidden;
-        display:flex;
-        flex-direction: column;
-        justify-content: space-between;
+    
+
+    .prbox{
+        margin: 3.5rem auto;
     }
+
+    .prbox .subcontainer{
+        row-gap: 1rem;
+    }
+
+    .prbox .subcontainer .button{
+        width: 40%;
+    }
+
 }
 
 @media(max-width: 1500px){
+
+    .containerm{
+        scroll-snap-type: none;
+        overflow-x: hidden;
+    }
+
     body{
         font-size: 20px;
         
@@ -362,7 +386,6 @@ footer .col .t{
     .prbox{
         flex-direction: column-reverse;
         align-items: center;
-        justify-content: center;
         margin: 3em auto;
         padding: 0;
     }
@@ -375,9 +398,9 @@ footer .col .t{
         width: 95%;
         margin: auto;
         margin-bottom: 2em;
-        display: flex;
         flex-direction: column;
         align-items: center;
+        row-gap: 2rem;
     }
 
     .prbox .subcontainerR{
@@ -388,34 +411,57 @@ footer .col .t{
 
 @media(max-width: 1200px){
 
-    
-
     header{
         padding: 5rem;
+    }
+
+    nav ul{
+        position: absolute;
+        z-index: 1;
+        background: #293241;
+        height: 100vh;
+        top: 15rem;
+        right: 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        transform: translateX(100%);
+        transition: all 0.3s ease 0s;
+    }
+    
+    nav ul li{
+        margin: 1em 0;
+        opacity: 0;
+    }
+    
+    nav li, a{
+        font-size: 4rem;
+        padding: 1em;
+        margin: 0;
+    }   
+
+    .burger{
+        display:block;
+        cursor: pointer;
+    }
+
+    .popup-box .close-btn{
+        font-size: 3.5rem;
     }
 
     header .title{
         font-size: 3rem;
     }
-
-    .t{
-        font-size: 5rem;
-    }
     
     .prbox .subcontainer{
         width: 90%;
-        margin-right: 2em;
         display: block;
     }
     
     .img1{
-    min-width: 600px;
-    width: 90%;
-    }
-    
-    .img2{
-        width: 300px;
-        margin-bottom: 1em;
+        min-width: 600px;
+        width: 90%;
     }
     
     .prbox .subcontainer .t{
@@ -441,13 +487,22 @@ footer .col .t{
     .container .t{
         font-size: 9rem;
         font-weight: 700;
+        text-align: center;
     }
     
     .container .subcontainer{
         grid-gap: 2em;
         margin: 0 1.7em;
+        display:flex;
+        flex-direction: column; 
     }
     
+
+    .container .element{
+        padding: 3rem;
+        row-gap: 1.5rem;
+    }
+
     .container .element .etitle{
         font-size: 7rem;
     }
@@ -458,8 +513,13 @@ footer .col .t{
     
     .container .element a{
         font-size: 3rem;
+        padding: 0;
     }
     
+    .img2{
+        width: 300px;
+        padding: 2rem;
+    }
     
     footer .col{
         width: 50%
@@ -473,52 +533,9 @@ footer .col .t{
         font-size: 1.7rem;
     }
     
-    
-    
-    .container .subcontainer{
-        display:flex;
-        flex-direction: column;
-        
-    }
-    
-    nav ul{
-        position: absolute;
-        z-index: 1;
-        background: #293241;
-        height: 100vh;
-        top: 15rem;
-        right: 0px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        transform: translateX(100%);
-        transition: all 0.3s ease 0s;
-    }
-    
-    nav ul li{
-        margin: 1em 0;
-        opacity: 0;
-    }
-    
-    nav li, a{
-    font-size: 4rem;
-    padding: 1em;
-    margin: 0;
-    }   
-
     footer a{
         font-size: 1.3rem;
         padding: 0;
-    }
-
-    .burger{
-        display:block;
-        cursor: pointer;
-    }
-
-    .popup-box .close-btn{
-        font-size: 3.5rem;
     }
 
 }
