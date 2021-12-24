@@ -12,6 +12,15 @@ popupExit.addEventListener('click', () => {
     popupbox.classList.remove("p-active");
 });
 
+popupbox.addEventListener('click', e => {
+    if(e.currentTarget !== e.target){
+        return;
+    }
+    else{
+        popupbox.classList.remove("p-active");
+    }
+});
+
 for(let i = 0; i < voirplus.length; i++){
     voirplus[i].addEventListener('click', () => {
         console.log(i);
@@ -19,5 +28,6 @@ for(let i = 0; i < voirplus.length; i++){
         popupTitle.innerHTML = elTitle[i].innerHTML;
         popupContent.innerHTML = elContents[i].innerHTML;
     });
+    
 }
 
